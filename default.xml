@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+     This is Repo Manifest for OpenDaylight.org's git repos.
+     See format doc on https://gerrit.googlesource.com/git-repo/+/master/docs/manifest-format.txt
+     See an example from Android on https://android.googlesource.com/platform/manifest/+/master/default.xml
+     Made with ❤ by Michael Vorburger.ch at RedHat.com for OpenDaylight.org.
+  -->
+<manifest>
+  <remote name="opendaylight"
+          fetch="https://git.opendaylight.org/gerrit/"
+          review="https://git.opendaylight.org/gerrit/" />
+   <default revision="master"
+           remote="opendaylight"
+           sync-j="4" />
+
+   <project name="infrautils" >
+   <project name="genius" >
+
+</manifest>
