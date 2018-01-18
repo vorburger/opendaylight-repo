@@ -1,6 +1,6 @@
 # opendaylight-repo
 
-http://OpenDaylight.org sources managed via Repo (from Android)
+http://OpenDaylight.org sources managed via [Repo (from Android)](https://source.android.com/setup/developing#repo).
 
 ## How to use
 
