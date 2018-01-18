@@ -13,13 +13,33 @@ Install [the Repo tool](https://raw.githubusercontent.com/vorburger/opendaylight
     curl https://raw.githubusercontent.com/vorburger/opendaylight-repo/master/repo > ~/bin/repo
     chmod a+x ~/bin/repo
 
-Now, typically from a directory inside which you may already have like an `odlparent/` or `netvirt/` etc. for (some) ODL projects' git repos, do:
+Now do this to have it `git clone` all of ODL's projects (in 4 parallel download threads):
 
-    repo init -u https://github.com/vorburger/opendaylight-repo
+    repo init --config-name -u https://github.com/vorburger/opendaylight-repo
+    repo sync
 
-You now have the sources of all of ODL's projects, and can:
+[`repo start`](https://source.android.com/setup/using-repo#start) can now create branches. By default it only affects the git repo of the current project, but by being in the root directory and using `*` we can branch all of them:
 
-    TBD...
+    repo start your-next-cool-cross-project-thing *
+
+[`repo diff`](https://source.android.com/setup/using-repo#diff) and [`repo status`](https://source.android.com/setup/using-repo#status) check changes across *all* projects' repos, not just the repo of the current working directory:
+
+    repo status
+    repo diff
+
+[`repo sync`](https://source.android.com/setup/using-repo#sync) fetches and rebases, again on *all* projects:
+
+    repo sync
+
+Before we can push to Gerrit, we still `git commit`, as always, using [`repo forall`](https://source.android.com/setup/using-repo#forall) from the root directory like this (or with `--amend`):
+
+    repo forall * -c git commit -asm "Great new stuff"
+
+[`repo upload`](https://source.android.com/setup/using-repo#upload) will push local changes to Gerrit:
+
+    repo upload
+
+NB: _If you run repo upload without any arguments, it will search all the projects for changes to upload._ So perhaps not something you want to run on your existing ODL git clones? ;-) Not a problem if you used repo init & sync on a fresh location, of course.
 
 ## Why?
 
@@ -38,3 +58,5 @@ Read these if you need more background why working like this is a Great Idea:
 ## What else & more...
 
 The `./repo` Python script included here is [the unmodified one obtained from Android](https://source.android.com/setup/downloading#installing-repo). This script is a "bootstrap" kinda thing; upon the initial `repo init` it will clone more of itself to `.repo/repo/repo`, and then delegate to that.
+
+Check out [Troubleshooting network issues](https://source.android.com/setup/downloading#troubleshooting-network-issues) from Android's doc, if you have any.
