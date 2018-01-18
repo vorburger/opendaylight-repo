@@ -1,10 +1,15 @@
 # opendaylight-repo
 
-http://OpenDaylight.org sources managed via [Repo (from Android)](https://source.android.com/setup/developing#repo).
+http://OpenDaylight.org sources managed via [Repo (from Android)](https://source.android.com/setup/developing#repo), see the [Using repo command reference](https://source.android.com/setup/using-repo).
 
 ## How to use
 
 _TBD_
+
+    cd {directory inside which you most likely already have directories like odlparent/netvirt/... for (some) ODL projects' git repos}
+    git clone https://github.com/vorburger/opendaylight-repo.git
+    cd opendaylight-repo.git
+    ./repo sync
 
 ## Why?
 
@@ -19,3 +24,9 @@ A huge single git repo would be neat, but is "organizationally" challenging... b
 Read these if you need more background why working like this is a Great Idea:
 * https://cacm.acm.org/magazines/2016/7/204032-why-google-stores-billions-of-lines-of-code-in-a-single-repository/fulltext
 * https://mike-bland.com/2011/12/02/coding-and-testing-at-google-2006-vs-2011.html 
+
+## What else & more...
+
+The `./repo` Python script included here is [the unmodified one obtained from Android](https://source.android.com/setup/downloading#installing-repo).
+
+The `./repo` script is a "bootstrap" kinda thing; it first clones and then delegates to `.repo/repo/repo`, which `repo init` created
