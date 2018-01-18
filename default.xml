@@ -13,7 +13,7 @@
            remote="opendaylight"
            sync-j="4" />
 
-   <project name="infrautils" >
-   <project name="genius" >
+   <project name="infrautils" />
+   <project name="genius" />
 
 </manifest>
