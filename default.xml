@@ -6,11 +6,11 @@
      Made with ❤ by Michael Vorburger.ch at RedHat.com for OpenDaylight.org.
   -->
 <manifest>
-  <remote name="opendaylight"
+  <remote name="origin"
           fetch="https://git.opendaylight.org/gerrit/"
           review="https://git.opendaylight.org/gerrit/" />
    <default revision="master"
-           remote="opendaylight"
+           remote="origin"
            sync-j="4" />
 
    <project name="infrautils" />
