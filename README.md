@@ -6,7 +6,7 @@ _Please Star and Watch this project on GitHub if it's of interest to you!  Contr
 
 ## How to use
 
-Install the Repo tool doing something like this:
+Install [the Repo tool](https://raw.githubusercontent.com/vorburger/opendaylight-repo/master/repo) doing something like this:
 
     mkdir ~/bin
     PATH=~/bin:$PATH
