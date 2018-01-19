@@ -13,7 +13,41 @@
            remote="origin"
            sync-j="4" />
 
-   <project name="infrautils" />
+   <project name="aaa" />
+   <project name="alto" />
+   <project name="bgpcep" />
+   <project name="bier" />
+   <project name="coe" />
+   <project name="controller" />
+   <project name="daexim" />
+   <project name="dlux" />
+   <project name="dluxapps" />
+   <project name="eman" />
+   <project name="faas" />
    <project name="genius" />
+   <project name="groupbasedpolicy" />
+   <project name="infrautils" />
+   <project name="l2switch" />
+   <project name="lispflowmapping" />
+   <project name="mdsal" />
+   <project name="nemo" />
+   <project name="netconf" />
+   <project name="netvirt" />
+   <project name="neutron" />
+   <project name="nic" />
+   <project name="odlparent" />
+   <project name="of-config" />
+   <project name="openflowplugin" />
+   <project name="ovsdb" />
+   <project name="sfc" />
+   <project name="snmp" />
+   <project name="snmp4sdn" />
+   <project name="sxp" />
+   <project name="tsdr" />
+   <project name="unimgr" />
+   <project name="usc" />
+   <project name="vtn" />
+   <project name="yangtools" />
+
 
 </manifest>
