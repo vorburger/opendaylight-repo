@@ -60,3 +60,5 @@ Read these if you need more background why working like this is a Great Idea:
 The `./repo` Python script included here is [the unmodified one obtained from Android](https://source.android.com/setup/downloading#installing-repo). This script is a "bootstrap" kinda thing; upon the initial `repo init` it will clone more of itself to `.repo/repo/repo`, and then delegate to that.
 
 Check out [Troubleshooting network issues](https://source.android.com/setup/downloading#troubleshooting-network-issues) from Android's doc, if you have any.
+
+[opendaylight-eclipse-setup](https://github.com/vorburger/opendaylight-eclipse-setup) is an unrelated project you may like as well?
