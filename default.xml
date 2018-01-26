@@ -26,7 +26,11 @@
    <project name="faas" />
    <project name="genius" />
    <project name="groupbasedpolicy" />
+   <project name="honeycomb/vbd" />
    <project name="infrautils" />
+   <project name="integration/distribution" />
+   <project name="integration/packaging" />
+   <project name="integration/test" />
    <project name="l2switch" />
    <project name="lispflowmapping" />
    <project name="mdsal" />
@@ -39,6 +43,7 @@
    <project name="of-config" />
    <project name="openflowplugin" />
    <project name="ovsdb" />
+   <project name="releng/builder" />
    <project name="sfc" />
    <project name="snmp" />
    <project name="snmp4sdn" />
