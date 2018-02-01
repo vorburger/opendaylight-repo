@@ -43,6 +43,12 @@
    <project name="of-config" />
    <project name="openflowplugin" />
    <project name="ovsdb" />
+   <project name="releng/autorelease"> <!-- WITHOUT sobmodules! -->
+     <!-- This looks confusiong, but src is relative to project
+          and dest is relative to repo root directory, so this
+          correctly symlinks the POM of autorelease to root: -->
+     <linkfile src="pom.xml" dest="pom.xml" />
+   </project>
    <project name="releng/builder" />
    <project name="sfc" />
    <project name="snmp" />
