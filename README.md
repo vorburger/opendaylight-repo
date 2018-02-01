@@ -62,3 +62,15 @@ The `./repo` Python script included here is [the unmodified one obtained from An
 Check out [Troubleshooting network issues](https://source.android.com/setup/downloading#troubleshooting-network-issues) from Android's doc, if you have any.
 
 [opendaylight-eclipse-setup](https://github.com/vorburger/opendaylight-eclipse-setup) is an unrelated project you may like as well?
+
+## How to build ODL autorelease
+
+This isn't really directly related to Repo, but useful in this context... ;-)
+
+    sudo dnf install xmlstarlet
+
+    ./releng/autorelease/scripts/fix-relativepaths.sh
+
+    rm -rf ~/.m2/repository/org/opendaylight/
+
+    mvn -Pq -T 1.5C -s ~/.m2/settings-odl-no-snapshot.xml -am -pl controller/opendaylight/archetypes/opendaylight-startup/ clean install
