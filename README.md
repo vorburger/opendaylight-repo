@@ -75,14 +75,22 @@ This isn't really directly related to Repo, but useful in this context... ;-)
 
     mvn -Pq -T 1.5C -s ~/.m2/settings-odl-no-snapshot.xml -am -pl controller/opendaylight/archetypes/opendaylight-startup/ clean install
 
+The settings-odl-no-snapshot.xml is a copy of the ODL settings.xml (`cp ~/.m2/settings.xml ~/.m2/settings-odl-no-snapshot.xml`) with line 78 for `<activeProfile>opendaylight-snapshots</activeProfile>` removed.
+
+The Maven `-am` option (AKA `--also-make`) used above also builds projects required by `-pl`; its opposite is `-amd` (AKA `--also-make-dependents`) to also build projects that depend on the `-pl` project, that is useful to determine cross project impacts, for example:
+
+    mvn -T 1.5C -amd -pl infrautils/testutils clean install
+
 ## How to build ODL on a fresh CentOS
 
 This isn't really directly related to Repo, but documented here anyway... ;-)
 
-    sudo yum install -y java-1.8.0-openjdk-devel git zip unzip wget epel-release xmlstarlet
+    sudo yum install -y java-1.8.0-openjdk-devel git zip unzip wget nano epel-release xmlstarlet
     curl -s "https://get.sdkman.io" | bash
     logout & login (or source "$HOME/.sdkman/bin/sdkman-init.sh")
     sdk install maven 3.5.2
     wget -q -O - https://raw.githubusercontent.com/opendaylight/odlparent/master/settings.xml > ~/.m2/settings.xml
-
+    echo 'MAVEN_OPTS="-Xmx4096m -Xverify:none"' >>~/.bashrc
+    logout & login (or export MAVEN_OPTS="-Xmx4096m -Xverify:none")
+    
 Now you can build, e.g. using as above - or also just a single ODL project.
