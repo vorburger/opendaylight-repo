@@ -73,13 +73,20 @@ This isn't really directly related to Repo, but useful in this context... ;-)
 
     rm -rf ~/.m2/repository/org/opendaylight/
 
-    mvn -Pq -T 1.5C -s ~/.m2/settings-odl-no-snapshot.xml -am -pl controller/opendaylight/archetypes/opendaylight-startup/ clean install
+    mvn -Pq -T 1.5C -s ~/.m2/settings-odl-no-snapshot.xml
 
 The settings-odl-no-snapshot.xml is a copy of the ODL settings.xml (`cp ~/.m2/settings.xml ~/.m2/settings-odl-no-snapshot.xml`) with line 78 for `<activeProfile>opendaylight-snapshots</activeProfile>` removed.
 
-The Maven `-am` option (AKA `--also-make`) used above also builds projects required by `-pl`; its opposite is `-amd` (AKA `--also-make-dependents`) to also build projects that depend on the `-pl` project, that is useful to determine cross project impacts, for example:
+The Maven `-am` option (AKA `--also-make`) makes it possible to only build "up to" a certain artifact, but also build all projects required by `-pl` (without pulling from Nexus), using:
 
-    mvn -T 1.5C -amd -pl infrautils/testutils clean install
+    mvn -Pq -T 1.5C -s ~/.m2/settings-odl-no-snapshot.xml -am -pl controller/opendaylight/archetypes/opendaylight-startup/ clean install
+
+The Maven option `-amd` (AKA `--also-make-dependents`) is a bit like opposite and also build projects that depend on the `-pl` project; that is useful to determine cross project impacts, and in this case you do have/want to pull from Nexus (unless you combine it with `--also-make`...) so for example:
+
+    mvn -Dskip.karaf.featureTest -amd -pl infrautils/testutils clean install
+
+The `-T 1.5C` option for parallel multi-threaded Maven building seems to be OK with `-Pq` (TBC) but causes havoc if you do not use `-Pq` and do run ODL tests, which often are reliably concurrency safe.
+
 
 ## How to build ODL on a fresh CentOS
 
