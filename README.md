@@ -63,7 +63,7 @@ Check out [Troubleshooting network issues](https://source.android.com/setup/down
 
 [opendaylight-eclipse-setup](https://github.com/vorburger/opendaylight-eclipse-setup) is an unrelated project you may like as well?
 
-## How to build ODL autorelease
+## How to build full ODL autorelease
 
 This isn't really directly related to Repo, but useful in this context... ;-)
 
@@ -74,3 +74,14 @@ This isn't really directly related to Repo, but useful in this context... ;-)
     rm -rf ~/.m2/repository/org/opendaylight/
 
     mvn -Pq -T 1.5C -s ~/.m2/settings-odl-no-snapshot.xml -am -pl controller/opendaylight/archetypes/opendaylight-startup/ clean install
+
+## How to build ODL on a fresh CentOS
+
+This isn't really directly related to Repo, but documented here anyway... ;-)
+
+    sudo yum install -y java-1.8.0-openjdk-devel git zip unzip xmlstarlet wget
+    curl -s "https://get.sdkman.io" | bash
+    logout & login (or source "$HOME/.sdkman/bin/sdkman-init.sh")
+    sdk install maven 3.5.2
+    wget -q -O - https://raw.githubusercontent.com/opendaylight/odlparent/master/settings.xml > ~/.m2/settings.xml
+    build e.g. as above (or just a single ODL project)
