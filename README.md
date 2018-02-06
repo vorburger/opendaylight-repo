@@ -79,9 +79,10 @@ This isn't really directly related to Repo, but useful in this context... ;-)
 
 This isn't really directly related to Repo, but documented here anyway... ;-)
 
-    sudo yum install -y java-1.8.0-openjdk-devel git zip unzip xmlstarlet wget
+    sudo yum install -y java-1.8.0-openjdk-devel git zip unzip wget epel-release xmlstarlet
     curl -s "https://get.sdkman.io" | bash
     logout & login (or source "$HOME/.sdkman/bin/sdkman-init.sh")
     sdk install maven 3.5.2
     wget -q -O - https://raw.githubusercontent.com/opendaylight/odlparent/master/settings.xml > ~/.m2/settings.xml
-    build e.g. as above (or just a single ODL project)
+
+Now you can build, e.g. using as above - or also just a single ODL project.
