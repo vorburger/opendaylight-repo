@@ -81,9 +81,9 @@ The Maven `-am` option (AKA `--also-make`) makes it possible to only build "up t
 
     mvn -Pq -T 1.5C -s ~/.m2/settings-odl-no-snapshot.xml -am -pl controller/opendaylight/archetypes/opendaylight-startup/ clean install
 
-The Maven option `-amd` (AKA `--also-make-dependents`) is a bit like opposite and also build projects that depend on the `-pl` project; that is useful to determine cross project impacts, and in this case you do have/want to pull from Nexus (unless you combine it with `--also-make`...) so for example:
+The Maven option `-amd` (AKA `--also-make-dependents`) is a bit like opposite and also build projects that depend on the `-pl` project; that is useful to determine cross project build and test impacts, and in this case you do have/want to pull from Nexus (unless you combine it with `--also-make`...) so for example:
 
-    mvn -Dskip.karaf.featureTest -amd -pl infrautils/testutils clean install
+    mvn -Pq -DskipTests=false -Dskip.karaf.featureTest -amd -pl infrautils/testutils clean install
 
 The `-T 1.5C` option for parallel multi-threaded Maven building seems to be OK with `-Pq` (TBC) but causes havoc if you do not use `-Pq` and do run ODL tests, which often are reliably concurrency safe.
 
